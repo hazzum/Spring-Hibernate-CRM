@@ -12,7 +12,5 @@ public interface CustomerService {
 
 	Customer createCustomer(Customer theCustomer);
 
-	Customer updateCustomer(Customer theCustomer);
-
 	Customer deleteCustomer(int id);
 }

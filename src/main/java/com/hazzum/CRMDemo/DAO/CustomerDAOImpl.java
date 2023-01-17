@@ -18,7 +18,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public List<Customer> index() {
 		Session session = sessionFactory.getCurrentSession();
-		return session.createQuery("from Customer", Customer.class).getResultList();
+		return session.createQuery("FROM Customer ORDER BY last_name", Customer.class).getResultList();
 	}
 	
 	@Override
@@ -30,19 +30,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public Customer createCustomer(Customer theCustomer) {
 		Session session = sessionFactory.getCurrentSession();
-		Customer tempCustomer = new Customer(theCustomer.getFirstName(), theCustomer.getLastName(), theCustomer.getEmail());
-		session.save(tempCustomer);
-		return tempCustomer;
-	}
-	
-	@Override
-	public Customer updateCustomer(Customer theCustomer) {
-		Session session = sessionFactory.getCurrentSession();
-		Customer myCustomer = session.get(Customer.class, theCustomer.getId());
-		myCustomer.setFirstName(theCustomer.getFirstName());
-		myCustomer.setLastName(theCustomer.getLastName());
-		myCustomer.setEmail(theCustomer.getEmail());
-		return myCustomer;
+		session.saveOrUpdate(theCustomer);
+		return theCustomer;
 	}
 	
 	@Override

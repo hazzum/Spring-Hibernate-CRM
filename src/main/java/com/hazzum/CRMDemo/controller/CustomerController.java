@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,9 +22,7 @@ public class CustomerController {
 	
 	@GetMapping("/list")
 	public String listCustomers(Model theModel) {
-		List<Customer> theCustomers = customerService.index();
-		System.out.println(theCustomers.get(2));
-		
+		List<Customer> theCustomers = customerService.index();		
 		theModel.addAttribute("customers", theCustomers);
 		return "list-customers";
 	}
@@ -31,7 +30,14 @@ public class CustomerController {
 	@GetMapping("/showAddForm")
 	public String showAddForm(Model theModel) {
 		Customer theCustomer = new Customer();
-		theModel.addAttribute(theCustomer);
+		theModel.addAttribute("customer", theCustomer);
+		return "customer-form";
+	}
+	
+	@GetMapping("/showUpdateForm")
+	public String showUpdateString(@RequestParam("customerId") int id, Model theModel) {
+		Customer theCustomer = customerService.getCustomer(id);
+		theModel.addAttribute("customer", theCustomer);
 		return "customer-form";
 	}
 	

@@ -11,7 +11,5 @@ public interface CustomerDAO {
 
 	Customer createCustomer(Customer theCustomer);
 
-	Customer updateCustomer(Customer theCustomer);
-
 	Customer deleteCustomer(int id);
 }

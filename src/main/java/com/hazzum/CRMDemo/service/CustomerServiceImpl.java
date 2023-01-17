@@ -38,13 +38,6 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	@Transactional
-	public Customer updateCustomer(Customer theCustomer) {
-		// TODO Auto-generated method stub
-		return customerDAO.updateCustomer(theCustomer);
-	}
-
-	@Override
-	@Transactional
 	public Customer deleteCustomer(int id) {
 		// TODO Auto-generated method stub
 		return customerDAO.deleteCustomer(id);
