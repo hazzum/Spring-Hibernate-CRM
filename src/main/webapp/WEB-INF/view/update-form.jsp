@@ -4,7 +4,7 @@
 <html>
 
 <head>
-	<title>Save Customer</title>
+	<title>Update Customer</title>
 <style type="text/css">
 html, body {
 	margin-left: 15px;
@@ -137,7 +137,7 @@ tr {
 	</div>
 
 	<div id="container">
-		<h3>Save Customer</h3>
+		<h3>Update Customer</h3>
 	
 		<form:form action="updateCustomer" modelAttribute="customer" method="POST">
 			<form:hidden path="id" />
