@@ -38,12 +38,25 @@ public class CustomerController {
 	public String showUpdateString(@RequestParam("customerId") int id, Model theModel) {
 		Customer theCustomer = customerService.getCustomer(id);
 		theModel.addAttribute("customer", theCustomer);
-		return "customer-form";
+		return "update-form";
 	}
 	
 	@PostMapping("/saveCustomer")
 	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
 		customerService.createCustomer(theCustomer);
+		return "redirect:/customer/list";
+	}
+	
+	@PostMapping("/updateCustomer")
+	public String updateCustomer(@ModelAttribute("customer") Customer theCustomer) {
+		customerService.updateCustomer(theCustomer);
+		return "redirect:/customer/list";
+	}
+	
+	@GetMapping("/delete")
+	public String deleteCustomer(@RequestParam("customerId") int theId) {
+		// delete the customer
+		customerService.deleteCustomer(theId);
 		return "redirect:/customer/list";
 	}
 }

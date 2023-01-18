@@ -13,4 +13,6 @@ public interface CustomerService {
 	Customer createCustomer(Customer theCustomer);
 
 	Customer deleteCustomer(int id);
+	
+	Customer updateCustomer(Customer theCustomer);
 }

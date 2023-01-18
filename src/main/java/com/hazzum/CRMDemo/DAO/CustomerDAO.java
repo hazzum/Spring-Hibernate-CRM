@@ -10,6 +10,8 @@ public interface CustomerDAO {
 	Customer getCustomer(int id);
 
 	Customer createCustomer(Customer theCustomer);
+	
+	Customer updateCustomer(Customer theCustomer);
 
 	Customer deleteCustomer(int id);
 }
