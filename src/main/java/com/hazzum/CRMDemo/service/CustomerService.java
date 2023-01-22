@@ -2,8 +2,11 @@ package com.hazzum.CRMDemo.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.hazzum.CRMDemo.entity.Customer;
 
+@Service
 public interface CustomerService {
 
 	List<Customer> index();
