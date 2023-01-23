@@ -26,31 +26,20 @@ public class CustomerRestController {
 	// add mapping for GET /customer
 	@GetMapping("/customers")
 	public List<Customer> getCustomer() {
-		List<Customer> theCustomers = null;
-		try {
-			theCustomers = customerService.index();
-			return theCustomers;
-		} catch (Exception e) {
-			throw new InternalServerErrorException("Could not retrieve customers");
-		} finally {
-			if (theCustomers.isEmpty())
-				throw new NotFoundException("No customers found");
-		}
+		List<Customer> theCustomers = customerService.index();
+		if (theCustomers.isEmpty())
+			throw new NotFoundException("No customers found");
+		return theCustomers;
 	}
 
 	// add mapping for GET /customers/{customerId}
 	@GetMapping("/customers/{customerId}")
 	public Customer getCustomer(@PathVariable int customerId) {
-		Customer theCustomer = null;
-		try {
-			theCustomer = customerService.getCustomer(customerId);
-			return theCustomer;
-		} catch (Exception e) {
-			throw new InternalServerErrorException("Could not retrieve customer");
-		} finally {
-			if (theCustomer == null)
-				throw new NotFoundException("Customer not found id: " + customerId);
-		}
+		Customer theCustomer = customerService.getCustomer(customerId);
+		if (theCustomer == null)
+			throw new NotFoundException("Customer not found id: " + customerId);
+		return theCustomer;
+
 	}
 
 	// add mapping for POST /customers - add new customer
