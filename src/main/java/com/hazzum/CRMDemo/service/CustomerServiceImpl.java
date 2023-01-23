@@ -18,35 +18,30 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	@Transactional
 	public List<Customer> index() {
-		// TODO Auto-generated method stub
 		return customerDAO.index();
 	}
 
 	@Override
 	@Transactional
 	public Customer getCustomer(int id) {
-		// TODO Auto-generated method stub
 		return customerDAO.getCustomer(id);
 	}
 
 	@Override
 	@Transactional
 	public Customer createCustomer(Customer theCustomer) {
-		// TODO Auto-generated method stub
 		return customerDAO.createCustomer(theCustomer);
 	}
 
 	@Override
 	@Transactional
 	public Customer deleteCustomer(int id) {
-		// TODO Auto-generated method stub
 		return customerDAO.deleteCustomer(id);
 	}
 
 	@Override
 	@Transactional
 	public Customer updateCustomer(Customer theCustomer) {
-		// TODO Auto-generated method stub
 		return customerDAO.updateCustomer(theCustomer);
 	}
 

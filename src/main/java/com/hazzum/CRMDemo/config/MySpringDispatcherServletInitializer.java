@@ -6,7 +6,6 @@ public class MySpringDispatcherServletInitializer extends AbstractAnnotationConf
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
